@@ -1,0 +1,56 @@
+body {
+    background-color: #c5c5c5;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.header-text {
+    font-size: 1em;
+    color: #ffffff75
+}
+
+main {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+input {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.card {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.card:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 4px 10px -1px, rgba(0, 0, 0, 0.3) 0px 2px 4px -1px;
+    cursor: pointer;
+}
+
+.category {
+    font-size: 2em;
+}
+
+.message-container {
+    background-color: #a6fbc276;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.footer-copy {
+    color: #ffffff6d;
+}
