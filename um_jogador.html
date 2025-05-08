@@ -10,8 +10,8 @@
 <body>
 
     <header class="bg-dark text-white text-center py-3">
-        <h1 class="">Adivinha a Palavra</h1>
-        <span class="lead header-text">Um jogo divertido para adivinhar palavras!</span>
+        <h1 class="mb-3">Hangry Words</h1>
+        <span class="lead header-text">Singleplayer</span>
     </header>
     
     <main class="container mt-4">
@@ -40,7 +40,7 @@
             </div>
 
             <div class="input-group mb-3 w-50 mx-auto">
-                <input type="text" class="form-control" placeholder="Escreve uma letra ou a palavra" aria-label="Recipient’s username" aria-describedby="button-addon2" id="guess_input">
+                <input type="text" class="form-control" placeholder="Escreve uma letra ou a palavra" aria-label="Recipient’s username" aria-describedby="button-addon2" id="guess_input" required>
                 <button class="btn btn-secondary" type="button" id="guess_button">Adivinhar</button>
             </div>
 
@@ -60,6 +60,7 @@
 
         </div>
 
+        <!-- Used Letters Toast -->
         <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
             <div id="letters_used_toast" class="toast align-items-center text-bg-warning border-0" role="alert" aria-live="assertive" aria-atomic="true">
               <div class="d-flex">
@@ -70,6 +71,18 @@
               </div>
             </div>
         </div>
+
+        <!-- Empty Input Toast -->
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+          <div id="empty_input_toast" class="toast align-items-center text-bg-warning border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+              <div class="toast-body">
+                O campo de texto não pode estar vazio!
+              </div>
+              <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Fechar"></button>
+            </div>
+          </div>
+      </div>
 
     </main>
 

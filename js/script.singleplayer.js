@@ -18,14 +18,18 @@ document.addEventListener("DOMContentLoaded", function () {
     let isWordGuessed = false;
     let isGameOver = false;
 
+    let score = Number(localStorage.getItem("score")) || 0;
 
     let attempts = 11;
     let lettersUsed = [];
     const lettersUsedText = document.getElementById("attempted_letters");
 
 
-    const toastElement = document.getElementById("letters_used_toast");
-    const letterUsedToast = new bootstrap.Toast(toastElement)
+    const LU_toastElement = document.getElementById("letters_used_toast");
+    const letterUsedToast = new bootstrap.Toast(LU_toastElement);
+
+    const EI_toastElement = document.getElementById("empty_input_toast");
+    const emptyInputToast = new bootstrap.Toast(EI_toastElement);
 
     const attemptsText = document.getElementById("attempts");
     attemptsText.textContent = attempts;
@@ -69,9 +73,14 @@ document.addEventListener("DOMContentLoaded", function () {
     guessButton.addEventListener("click", () => {
         if (isGameOver) return;
 
-        const userGuess = userInput.value.toUpperCase();
+        const userGuess = userInput.value.trim().toUpperCase();
         userInput.value = "";
         userInput.focus();
+
+        if (userGuess === "") {
+            emptyInputToast.show();
+            return;
+        }
 
         if (lettersUsed.includes(userGuess)) {
             letterUsedToast.show();
@@ -119,9 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-    restartButton.addEventListener("click", () => {
-        document.location.reload(true);
-    })
+    restartButton.addEventListener("click", () => document.location.reload(true));
 
     // Functions
     function GameState() {
@@ -134,6 +141,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function GameOver() {
         GameState();
 
+        score--;
+        localStorage.setItem("score", score);
+        // console.log(score);
+
         modalTitle.textContent = "Perdeste!";
         modalBody.textContent = `Womp womp! A palavra era "${randomWord}"`;
         gameResultModal.show();
@@ -142,6 +153,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function GameWon() {
         GameState();
         isWordGuessed = true;
+
+        score++;
+        localStorage.setItem("score", score);
+        // console.log(score);
 
         modalTitle.textContent = "Venceste!";
         modalBody.textContent = `Parabéns! A palavra era ${randomWord}`;
